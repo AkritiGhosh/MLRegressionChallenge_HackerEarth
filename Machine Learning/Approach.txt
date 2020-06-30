@@ -1,0 +1,60 @@
+Tools used:
+1. Google Colab
+2. System with good internet connectivity
+
+Language/ Technologies Used
+1. Python 
+2. Pandas
+3. Math library (sqrt function)
+4. Matplotlib
+5. Scikit Learn
+
+Approach:
+1. Import the necessary libraries
+2. Create functions:
+	2.1 encode_object(): To encode the values of columns of dataframe having label/object datatypes into int format
+		Argument : Dataframe
+		Return: Dataframe (with encoded values)
+	2.2  count_null(): To count and print the number of null values in each column of dataframe
+		Argument : Dataframe
+		
+	2.3 fill(): To fill the NaN values of every column of dataframe using ffill() or bfill()
+		Argument : Dataframe
+		Return: Dataframe (with filled values)
+	2.4 preprocessing(): containing all preprocessing functions required before model training (encode, count, fill)
+		Argument : Dataframe
+		Return: Dataframe
+
+	2.5 feature_label_split(): to split the training set and separate features(x) and label(y).
+		x = 0 to 22nd column
+		y= 23rd column
+		It is done by first selecting column by index (dataframe.iloc[]) & splicing the selected columns 
+		Argument : Dataframe
+		Return: Dataframe_x , Dataframe_y
+
+3. Upload the training set 'Train.csv' to colab and store it as a dataframe called 'train_set'
+4. Preprocess the 'train_set' and then split it into feature and label
+5. Use the feature and label to split the dataset into - x_train, y_train, x_test, y_test
+6. Create a Linear Regression Model using sklearn.linear_models.LinearRegression()
+7. Train that model according to x_train and y_train
+8. Use the model to predict the values of x_test and store the results in y_pred
+9. Compare y_test and y_pred, using mean absolute error, mean squared error and root mean squared error(rmsq).
+10 Evaluate the score using the formula in problem statement :
+	score = 100*max(0,1-rmsq)
+
+11. Upload the testing dataset 'Test.csv' to colab and store it in a dataframe called 'test_set'
+12. Store the 1st column of test_set, i.e. the Employee_ID, in a dataframe called 'id'
+13. Preprocess the test_set similar to the train_set
+14. Use the model to values of test_set and store the results in a dataframe called 'rates'
+15. Merge the 2 dataframe (id and rates) in a single dataframe and convert it to a .CSV file, called 'Result.csv'
+16. Download the Result.csv file from colab
+
+
+
+
+
+
+
+
+
+
