@@ -1,0 +1,39 @@
+PROBLEM STATEMENT
+Find the employee ID and name of all the female employees who work in the Sales department whose:
+1. Time since the last promotion has exceeded 1 year
+2. Pay scale is above 4.0.
+You must order your answer by employee's name.
+
+TABLES AND THEIR DESCRIPTION
+TABLE 1 : Employee
+Column			          Type
+Employee_ID		        varchar(10)
+Age			              int
+Education			        int
+Relationship_Status		varchar(10)
+Hometown		          varchar(10)
+Name			            varchar(30)
+Gender			          varchar(1)
+ 
+TABLE 2 : Service
+Column				                  Type
+Employee_ID	  		              varchar(10)
+Unit			  	                  varchar(10)
+Post_Level			                int
+Time_since_promotion      	    int
+Time_of_service			            float
+Pay_Scale			                  float
+Collaboration_and_Teamwork  		int
+Compensation_and_Benefits		    varchar(10)
+
+SOLUTION QUERY
+SELECT EMP.Employee_ID, EMP.Name 
+FROM Employee AS EMP 
+INNER JOIN
+Service AS SERV 
+ON EMP.Employee_ID = SERV.Employee_ID
+WHERE
+EMP.Gender = 'F' AND
+SERV.Unit = 'Sales' AND
+SERV.Time_since_promotion > 1 AND
+SERV.Pay_Scale > 4.0
